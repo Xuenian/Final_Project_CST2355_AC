@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">CST2335_Group_Project</string>
+    <string name="welcome_message">Welcome to Information Center</string>
+    <string name="course_message">Algonquin College - Computer Programmer\nCST2355-020-022-2018Fall\nProfessor: Eric Torunski, Mohammad Kadhum</string>
+    <string name="group_message">========== Group 008 - Members: ==========</string>string>
+    <string name="member1_name">Claire Hendrickson-Jones</string>
+    <string name="member2_name">Galen Reid</string>
+    <string name="member3_name">Forth</string>
+    <string name="member4_name">XueNian Jiang</string>
+    <string name="button1_name">Food Nutrition DB</string>
+    <string name="button2_name">Movie Info: OMDb </string>
+    <string name="button3_name">CBC News Reader</string>
+    <string name="button4_name">OC Bus Route</string>
+</resources>

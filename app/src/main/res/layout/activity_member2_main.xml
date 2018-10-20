@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Member2MainActivity">
+
+    <LinearLayout
+        android:id="@+id/buttonBarM2"
+        style="@android:style/ButtonBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/member2Btn1"
+            style="@android:style/ButtonBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button1_name"
+            android:textAllCaps="false"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/member2Btn3"
+            style="@android:style/ButtonBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button3_name"
+            android:textAllCaps="false"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/member2Btn4"
+            style="@android:style/ButtonBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button4_name"
+            android:textAllCaps="false"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textViewM2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonBarM2"
+        android:text="@string/button2_name"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="18sp" />
+
+</RelativeLayout>
