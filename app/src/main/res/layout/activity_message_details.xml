@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/framelayoutstationm4"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MessageDetails">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textViewStationDetails01M4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/textViewStationDetails02M4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewStationDetails01M4"
+        android:layout_marginTop="30dp"
+        android:gravity="left"
+        android:text="" />
+
+    <Button
+        android:id="@+id/deleteMessageBtnM4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Delete This Station" />
+
+    </RelativeLayout>
+
+</FrameLayout>

@@ -62,9 +62,44 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewM4"
+        android:layout_above="@+id/ProgressBarM4"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="6dp" />
+
+    <ProgressBar
+        android:id="@+id/ProgressBarM4"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/SearchButtonM4"
+        android:layout_margin="5dp"
+        android:visibility="visible" />
+
+    <EditText
+        android:id="@+id/SearchStationM4"
+        android:layout_width="271dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginRight="-2dp"
+        android:layout_marginBottom="0dp"
+        android:layout_toLeftOf="@+id/SearchButtonM4"
+        android:ems="10"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="460dp" />
+
+    <Button
+        android:id="@+id/SearchButtonM4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:text="@string/m4_searchbtn"
+        tools:layout_editor_absoluteX="288dp"
+        tools:layout_editor_absoluteY="460dp" />
 
 </RelativeLayout>

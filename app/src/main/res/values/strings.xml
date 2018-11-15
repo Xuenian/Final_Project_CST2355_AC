@@ -5,10 +5,16 @@
     <string name="group_message">========== Group 008 - Members: ==========</string>string>
     <string name="member1_name">Claire Hendrickson-Jones</string>
     <string name="member2_name">Galen Reid</string>
-    <string name="member3_name">Forth</string>
+    <string name="member3_name">Vithura Sribalachandran</string>
     <string name="member4_name">XueNian Jiang</string>
     <string name="button1_name">Food Nutrition DB</string>
     <string name="button2_name">Movie Info: OMDb </string>
     <string name="button3_name">CBC News Reader</string>
     <string name="button4_name">OC Bus Route</string>
+    <string name="ok">Yes</string>
+    <string name="cancel">No</string>
+
+    <string name="m4_searchbtn">Search</string>
+    <string name="m4_dialog_title">Please confirm</string>
+    <string name="m4_dialog_message">Remove the station form your list?</string>
 </resources>
