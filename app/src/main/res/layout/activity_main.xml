@@ -15,7 +15,7 @@
         android:layout_row="0"
         android:layout_columnSpan="2"
         android:paddingTop="5dp"
-        android:text="@string/welcome_message"
+        android:text="@string/project_title"
         android:textAlignment="center"
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="18sp" />
