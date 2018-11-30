@@ -17,4 +17,10 @@
     <string name="m4_searchbtn">Search</string>
     <string name="m4_dialog_title">Please confirm</string>
     <string name="m4_dialog_message">Remove the station form your list?</string>
+
+
+    <string name="m1SearchBar">Enter a food</string>
+    <string name="m1SearchButton">Search</string>
+    <string name="m1FavButton">Favourites</string>
+
 </resources>

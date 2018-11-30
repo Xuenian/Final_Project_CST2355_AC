@@ -20,8 +20,10 @@
         <activity android:name=".Member2MainActivity" />
         <activity android:name=".Member3MainActivity" />
         <activity android:name=".Member4MainActivity" />
-        <activity android:name=".MessageDetails"
-            android:theme="@style/Theme.AppCompat.Light"></activity>
+        <activity
+            android:name=".MessageDetails"
+            android:theme="@style/Theme.AppCompat.Light" />
+        <activity android:name=".M1FavActivity"></activity>
     </application>
 
 </manifest>
