@@ -1,44 +1,43 @@
 package ca.algonquinstudents.cst2335_group_project;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 
-public class Member2MainActivity extends Activity {
+public class Member2MainActivity extends AppCompatActivity {
+
+    private ToolbarMenu toolitem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_member2_main);
 
-        Button Btn1 = findViewById(R.id.member2Btn1);
-        Button Btn2 = findViewById(R.id.member2Btn3);
-        Button Btn3 = findViewById(R.id.member2Btn4);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarm2);
+        setSupportActionBar(toolbar);
 
-        Btn1.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                Intent intent = new Intent(Member2MainActivity.this, Member1MainActivity.class);
-                startActivity(intent);
-                Member2MainActivity.this.finish();
-            }
-        });
+        toolitem = new ToolbarMenu(Member2MainActivity.this);
+    }
 
-        Btn2.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                Intent intent = new Intent(Member2MainActivity.this, Member3MainActivity.class);
-                startActivity(intent);
-                Member2MainActivity.this.finish();
-            }
-        });
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        menu.getItem(1).setVisible(false);
+        toolitem.setHelpTitle(getString(R.string.m2_help_title));
+        toolitem.setHelpMessage(getString(R.string.m2_help_message));
+        return true;
+    }
 
-        Btn3.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                Intent intent = new Intent(Member2MainActivity.this, Member4MainActivity.class);
-                startActivity(intent);
-                Member2MainActivity.this.finish();
-            }
-        });
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
+        intent = toolitem.onToolbarItemSelected(item);
+        if( intent != null) {
+            startActivity(intent);
+            Member2MainActivity.this.finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
