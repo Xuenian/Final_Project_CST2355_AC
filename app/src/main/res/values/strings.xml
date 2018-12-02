@@ -25,7 +25,6 @@
     <string name="m1SearchButton">Search</string>
     <string name="m1FavButton">Favourites</string>
 
-
     <string name="m2_help_title">Movie Info Help</string>
     <string name="m2_help_message">Help Message for Movie Info</string>
 
@@ -45,7 +44,6 @@
     <string name="m4_help_message">Help Message for OC Bus Route</string>
     <string name="m4_searchbtn">Search by</string>
     <string name="m4_dialog_title">Please confirm</string>
-    <string name="m4_dialog_message">Remove the station form your list?</string>
     <string name="m4_remove_button">Remove from My List</string>
     <string name="m4_add_button">Add to My List</string>
     <string name="m4_refresh_button">Refresh Details</string>

@@ -24,8 +24,8 @@ public class Member1MainActivity extends AppCompatActivity {
 
         toolitem = new ToolbarMenu(Member1MainActivity.this);
 
-        favButton = findViewById(R.id.m1FavButton);
-        searchButton = findViewById(R.id.m1SearchButton);
+        Button favButton = findViewById(R.id.m1FavButton);
+        Button searchButton = findViewById(R.id.m1SearchButton);
 
         favButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){

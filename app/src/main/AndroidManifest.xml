@@ -26,6 +26,7 @@
             android:name=".M4BusStopDetailsActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".Member4SearchActivity"></activity>
+        <activity android:name=".M1FavActivity"></activity>
     </application>
 
 </manifest>

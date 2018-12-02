@@ -21,6 +21,9 @@
 
     <string name="m1_help_title">Nutrition Alimentaire Aide</string>
     <string name="m1_help_message">Contenue de la section Aide pour Nutrition Alimentaire</string>
+    <string name="m1SearchBar">Enter a food</string>
+    <string name="m1SearchButton">Search</string>
+    <string name="m1FavButton">Favourites</string>
 
     <string name="m2_help_title">Synopsis Aide</string>
     <string name="m2_help_message">Contenue de la section Aide pour Synopsis</string>
