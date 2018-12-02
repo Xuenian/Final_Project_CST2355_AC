@@ -33,7 +33,10 @@
     <string name="m4_station_name">Nom de Station</string>
     <string name="m4_show_mylist">Montrer Ma Liste</string>
     <string name="m4_lv_mylist">Ma Liste</string>
-    <string name="m4_lv_search_result">Résultat</string>
+    <string name="m4_db_searching_wait">Database Searching, Please wait ...... </string>
+    <string name="m4_db_search_result">Search Result: </string>
+    <string name="m4_db_search_result_no_match">No Matched Item Found!</string>
+    <string name="m4_internet_error">Unable to Access Internet Services.\nPlease check internet connection.</string>
     <string name="m4_help_title">Circuit de Bus OC Aide</string>
     <string name="m4_help_message">Contenue de la section Aide pour Circuit de Bus OC</string>
     <string name="m4_searchbtn">Chercher par</string>
@@ -42,4 +45,7 @@
     <string name="m4_add_button">Ajouter à ma Liste</string>
     <string name="m4_refresh_button">Rafraîchir les Détails</string>
     <string name="m4_dialog_message">Enlever la station et bus de votre liste?</string>
+    <string name="m4_snackbar_message">Remove from My List; Add to My List; or Refresh the Details.</string>
+    <string name="m4_snackbar_search">Search by Stop Code, Search by Stop Name, Search by Route Number, Or Click an item for Details.</string>
+    <string name="m4_internet_wait">Internet Querying, Please wait ......</string>
 </resources>

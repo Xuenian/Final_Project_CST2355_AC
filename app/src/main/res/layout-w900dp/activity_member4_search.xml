@@ -16,7 +16,7 @@
 
     <TextView
         android:id="@+id/ListViewSearchResultM4"
-        android:layout_width="wrap_content"
+        android:layout_width="362dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbarm4"
         android:layout_alignParentStart="true"
@@ -26,7 +26,7 @@
     <ProgressBar
         android:id="@+id/ProgressBarM4"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
+        android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ListViewSearchResultM4"
         android:layout_margin="5dp"
@@ -34,20 +34,20 @@
 
     <LinearLayout
             android:id="@+id/listtitleBarSearchM4"
-            android:layout_width="match_parent"
+            android:layout_width="400dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ProgressBarM4"
-            android:layout_centerHorizontal="true"
+            android:layout_alignParentStart="true"
             android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/StationNumberSearchM4"
-                android:layout_width="68dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="6dp"
-                android:text="@string/m4_station_number" />
+        <TextView
+            android:id="@+id/StationNumberSearchM4"
+            android:layout_width="68dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:text="@string/m4_station_number" />
 
-            <TextView
+        <TextView
                 android:id="@+id/RouteNumberSearchM4"
                 android:layout_width="38dp"
                 android:layout_height="wrap_content"
@@ -65,14 +65,22 @@
 
         <ListView
             android:id="@+id/ListViewSearchM4"
-            android:layout_width="wrap_content"
+            android:layout_width="400dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/listtitleBarSearchM4"
             android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="6dp" />
+
+    <FrameLayout
+        android:id="@+id/frameLayoutdetailsearchm4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbarm4"
+        android:layout_toRightOf="@+id/ListViewSearchM4"
+        android:layout_alignParentBottom="true">
+    </FrameLayout>
 
     <!--
         <LinearLayout

@@ -7,9 +7,9 @@ import android.content.Intent;
 import android.view.MenuItem;
 
 public class ToolbarMenu {
-    Context context;
-    String helpTitle, aboutTitle;
-    String helpMessage, aboutMessage;
+    private Context context;
+    private String helpTitle, aboutTitle;
+    private String helpMessage, aboutMessage;
 
     ToolbarMenu(Context context) {
         this.context = context;
@@ -53,6 +53,9 @@ public class ToolbarMenu {
                 showMessageDialog( context.getString(R.string.project_title), getAboutMessage());
                 break;
             default:
+                intent = new Intent(context, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                break;
         }
         return intent;
     }
