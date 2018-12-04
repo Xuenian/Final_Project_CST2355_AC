@@ -21,6 +21,9 @@
 
     <string name="m1_help_title">Food Nutrition Help</string>
     <string name="m1_help_message">Help Message for Food Nutrition</string>
+    <string name="m1SearchBar">Enter a food</string>
+    <string name="m1SearchButton">Search</string>
+    <string name="m1FavButton">Favourites</string>
 
     <string name="m2_help_title">Movie Info Help</string>
     <string name="m2_help_message">Please click Help button</string>
@@ -56,12 +59,15 @@
     <string name="m3_help_title">CBC News Reader Help</string>
     <string name="m3_help_message">Help Message for CBC News Reader</string>
 
-    <string name="m4_station_number">Station#</string>
+    <string name="m4_station_number">Stop#</string>
     <string name="m4_bus_line">Bus#</string>
-    <string name="m4_station_name">Station Name</string>
+    <string name="m4_station_name">Stop Name</string>
     <string name="m4_show_mylist">Show My List</string>
     <string name="m4_lv_mylist">My List</string>
-    <string name="m4_lv_search_result">Search Result</string>
+    <string name="m4_db_searching_wait">Database Searching, Please wait ...... </string>
+    <string name="m4_db_search_result">Search Result: </string>
+    <string name="m4_db_search_result_no_match">No Matched Item Found!</string>
+    <string name="m4_internet_error">Unable to Access Internet Services.\nPlease check internet connection.</string>
     <string name="m4_help_title">OC Bus Route Help</string>
     <string name="m4_help_message">Help Message for OC Bus Route</string>
     <string name="m4_searchbtn">Search by</string>
@@ -70,4 +76,7 @@
     <string name="m4_add_button">Add to My List</string>
     <string name="m4_refresh_button">Refresh Details</string>
     <string name="m4_dialog_message">Remove the station and bus form your list?</string>
+    <string name="m4_snackbar_message">Remove from My List; Add to My List; or Refresh the Details.</string>
+    <string name="m4_snackbar_search">Search by Stop Code, Search by Stop Name, Search by Route Number, Or Click an item for Details.</string>
+    <string name="m4_internet_wait">Internet Querying, Please wait ......</string>
 </resources>

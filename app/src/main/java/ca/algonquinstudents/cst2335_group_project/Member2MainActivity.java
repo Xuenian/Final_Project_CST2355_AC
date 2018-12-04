@@ -641,7 +641,7 @@ public class Member2MainActivity extends AppCompatActivity {
      */
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
-        menu.getItem(1).setVisible(false);
+        menu.getItem(2).setVisible(false);
         toolitem.setHelpTitle(getString(R.string.m2_help_title));
         toolitem.setHelpMessage(getString(R.string.m2_help_message));
         return true;
