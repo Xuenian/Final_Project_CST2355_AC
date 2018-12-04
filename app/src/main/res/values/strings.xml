@@ -23,7 +23,35 @@
     <string name="m1_help_message">Help Message for Food Nutrition</string>
 
     <string name="m2_help_title">Movie Info Help</string>
-    <string name="m2_help_message">Help Message for Movie Info</string>
+    <string name="m2_help_message">Please click Help button</string>
+    <string name="m2_aboutText">Author: Galen Reid  Version 1.0</string>
+    <string name="m2_hint">Search Movie</string>
+    <string name="m2_add">Add</string>
+    <string name="m2_help">Help</string>
+    <string name="m2_about">About</string>
+    <string name="m2_Title">Title: </string>
+    <string name="m2_Year">Year: </string>
+    <string name="m2_Rated">Rated: </string>
+    <string name="m2_Released">Released: </string>
+    <string name="m2_Runtime">Runtime: </string>
+    <string name="m2_Genre">Genre: </string>
+    <string name="m2_Director">Director: </string>
+    <string name="m2_Actors">Starring: </string>
+    <string name="m2_Plot">Plot: </string>
+    <string name="m2_back">Back</string>
+    <string name="m2_save">Save Movie</string>
+    <string name="m2_delete">Delete</string>
+    <string name="m2_noMovie">Movie not found</string>
+    <string name="m2_deleteMovie">Movie Deleted</string>
+    <string name="m2_saveMovie">Movie Saved</string>
+    <string name="m2_saveCount">Total Movies Saved: </string>
+    <string name="m2_saveShort">Shortest Movie: </string>
+    <string name="m2_saveLong">Longest Movie: </string>
+    <string name="m2_saveAvg">Average Lenght: </string>
+    <string name="m2_saveYear">Average release year: </string>
+    <string name="m2_helpInfo">Help: Enter a movie name into the search bar to find its information.
+    You may save a movies info to your device. Click saved movies to see their info or delete them.</string>
+
 
     <string name="m3_help_title">CBC News Reader Help</string>
     <string name="m3_help_message">Help Message for CBC News Reader</string>
