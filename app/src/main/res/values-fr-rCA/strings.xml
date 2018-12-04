@@ -64,19 +64,19 @@
     <string name="m4_station_name">Nom de Station</string>
     <string name="m4_show_mylist">Montrer Ma Liste</string>
     <string name="m4_lv_mylist">Ma Liste</string>
-    <string name="m4_db_searching_wait">Database Searching, Please wait ...... </string>
-    <string name="m4_db_search_result">Search Result: </string>
-    <string name="m4_db_search_result_no_match">No Matched Item Found!</string>
-    <string name="m4_internet_error">Unable to Access Internet Services.\nPlease check internet connection.</string>
+    <string name="m4_db_searching_wait">En train de recherche, Veuillez patienter ...... </string>
+    <string name="m4_db_search_result">Resultat: </string>
+    <string name="m4_db_search_result_no_match">Aucun resultat trouver!</string>
+    <string name="m4_internet_error">Aucun connection internet.\nVeuillez verifier votre connexion internet.</string>
     <string name="m4_help_title">Circuit de Bus OC Aide</string>
-    <string name="m4_help_message">Contenue de la section Aide pour Circuit de Bus OC</string>
+    <string name="m4_help_message">Appuyer sur le bouton pour selectioner la methode de recherche.\nAppuyer \'Chercher par\' bouton pour commencer.\nChoisisez un des resultats ou \'Ma Liste\' examiner les details du bus.\nVous pouvez enregistrez vos resultats a \'Ma Liste\' ou retirer votre resultat de \'Ma Liste\'.</string>
     <string name="m4_searchbtn">Chercher par</string>
     <string name="m4_dialog_title">Veuillez Confirmer</string>
     <string name="m4_remove_button">Retirer de ma Liste</string>
     <string name="m4_add_button">Ajouter à ma Liste</string>
     <string name="m4_refresh_button">Rafraîchir les Détails</string>
     <string name="m4_dialog_message">Enlever la station et bus de votre liste?</string>
-    <string name="m4_snackbar_message">Remove from My List; Add to My List; or Refresh the Details.</string>
-    <string name="m4_snackbar_search">Search by Stop Code, Search by Stop Name, Search by Route Number, Or Click an item for Details.</string>
-    <string name="m4_internet_wait">Internet Querying, Please wait ......</string>
+    <string name="m4_snackbar_message">Retirer de Ma Liste; Ajouter a Ma Liste; or Rafraichir les Details.</string>
+    <string name="m4_snackbar_search">Chercher par Code de l\'Arret, Chercher par le nom de l\'Arret, Chercher par le nombre du Circuit, Ou Appuyer sur un objets pour les Details.</string>
+    <string name="m4_internet_wait">Recherche par internet, Veuillez patienter ......</string>
 </resources>
