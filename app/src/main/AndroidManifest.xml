@@ -21,13 +21,22 @@
         <activity android:name=".Member1MainActivity" />
         <activity android:name=".M1FavActivity"/>
         <activity android:name=".M1FavDetails"/>
-        <activity android:name=".Member2MainActivity" />
+
+        <activity
+            android:name=".Member2MainActivity"
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name=".Member3MainActivity" />
         <activity android:name=".Member4MainActivity" />
         <activity
-            android:name=".M4MessageDetails"
-            android:theme="@style/Theme.AppCompat.Light" />
+
+
+            android:name=".M4BusStopDetailsActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
         <activity android:name=".Member4SearchActivity"></activity>
+
+        <activity android:name=".M2Help"></activity>
+
     </application>
 
 </manifest>

@@ -55,15 +55,6 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/ShowMyListButtonM4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/ListViewM4"
-        android:layout_below="@+id/toolbarm4"
-        android:text="@string/m4_show_mylist"
-        android:textAllCaps="false" />
-
     <ListView
         android:id="@+id/ListViewM4"
         android:layout_width="wrap_content"

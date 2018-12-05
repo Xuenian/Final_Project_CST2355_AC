@@ -39,28 +39,57 @@
     <string name="m1SearchFavsBar">Search by tag</string>
 
     <string name="m2_help_title">Movie Info Help</string>
-    <string name="m2_help_message">Help Message for Movie Info</string>
+    <string name="m2_help_message">Please click Help button</string>
+    <string name="m2_aboutText">Author: Galen Reid  Version 1.0</string>
+    <string name="m2_hint">Search Movie</string>
+    <string name="m2_add">Add</string>
+    <string name="m2_help">Help</string>
+    <string name="m2_about">About</string>
+    <string name="m2_Title">Title: </string>
+    <string name="m2_Year">Year: </string>
+    <string name="m2_Rated">Rated: </string>
+    <string name="m2_Released">Released: </string>
+    <string name="m2_Runtime">Runtime: </string>
+    <string name="m2_Genre">Genre: </string>
+    <string name="m2_Director">Director: </string>
+    <string name="m2_Actors">Starring: </string>
+    <string name="m2_Plot">Plot: </string>
+    <string name="m2_back">Back</string>
+    <string name="m2_save">Save Movie</string>
+    <string name="m2_delete">Delete</string>
+    <string name="m2_noMovie">Movie not found</string>
+    <string name="m2_deleteMovie">Movie Deleted</string>
+    <string name="m2_saveMovie">Movie Saved</string>
+    <string name="m2_saveCount">Total Movies Saved: </string>
+    <string name="m2_saveShort">Shortest Movie: </string>
+    <string name="m2_saveLong">Longest Movie: </string>
+    <string name="m2_saveAvg">Average Lenght: </string>
+    <string name="m2_saveYear">Average release year: </string>
+    <string name="m2_helpInfo">Help: Enter a movie name into the search bar to find its information.
+    You may save a movies info to your device. Click saved movies to see their info or delete them.</string>
+
 
     <string name="m3_help_title">CBC News Reader Help</string>
     <string name="m3_help_message">Help Message for CBC News Reader</string>
 
-    <string name="m4_station_number">Station#</string>
+    <string name="m4_station_number">Stop#</string>
     <string name="m4_bus_line">Bus#</string>
-    <string name="m4_station_name">Station Name</string>
+    <string name="m4_station_name">Stop Name</string>
     <string name="m4_show_mylist">Show My List</string>
     <string name="m4_lv_mylist">My List</string>
-    <string name="m4_lv_search_result">Search Result</string>
+    <string name="m4_db_searching_wait">Database Searching, Please wait ...... </string>
+    <string name="m4_db_search_result">Search Result: </string>
+    <string name="m4_db_search_result_no_match">No Matched Item Found!</string>
+    <string name="m4_internet_error">Unable to Access Internet Services.\nPlease check internet connection.</string>
     <string name="m4_help_title">OC Bus Route Help</string>
-    <string name="m4_help_message">Help Message for OC Bus Route</string>
+    <string name="m4_help_message">Click the radio button to select search method.\nClick \'Search By\' button to start a search.\nSelect an item from search result or \'My List\' to see the bus details.\nYou can save the item to \'My List\' or remove the item from \'My List\'.</string>
     <string name="m4_searchbtn">Search by</string>
     <string name="m4_dialog_title">Please confirm</string>
-    <string name="m4_dialog_message">Remove the station form your list?</string>
-
-
-
-
     <string name="m4_remove_button">Remove from My List</string>
     <string name="m4_add_button">Add to My List</string>
     <string name="m4_refresh_button">Refresh Details</string>
-
+    <string name="m4_dialog_message">Remove the station and bus form your list?</string>
+    <string name="m4_snackbar_message">Remove from My List; Add to My List; or Refresh the Details.</string>
+    <string name="m4_snackbar_search">Search by Stop Code, Search by Stop Name, Search by Route Number, Or Click an item for Details.</string>
+    <string name="m4_internet_wait">Internet Querying, Please wait ......</string>
 </resources>
