@@ -61,6 +61,8 @@ public class Member1MainActivity extends AppCompatActivity {
 
 
 
+//        Button favButton = findViewById(R.id.m1FavButton);
+//        Button searchButton = findViewById(R.id.m1SearchButton);
 
 
 

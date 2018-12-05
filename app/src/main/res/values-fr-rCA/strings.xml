@@ -21,9 +21,40 @@
 
     <string name="m1_help_title">Nutrition Alimentaire Aide</string>
     <string name="m1_help_message">Contenue de la section Aide pour Nutrition Alimentaire</string>
+    <string name="m1SearchBar">Enter a food</string>
+    <string name="m1SearchButton">Search</string>
+    <string name="m1FavButton">Favourites</string>
 
     <string name="m2_help_title">Synopsis Aide</string>
-    <string name="m2_help_message">Contenue de la section Aide pour Synopsis</string>
+    <string name="m2_help_message">cliquez sur le bouton daide</string>
+    <string name="m2_aboutText">Auteur: Galen Reid  Version 1.0</string>
+    <string name="m2_hint">Rechercher un film</string>
+    <string name="m2_add">Fin</string>
+    <string name="m2_help">Aidez</string>
+    <string name="m2_about">Sur</string>
+    <string name="m2_Title">Titre: </string>
+    <string name="m2_Year">Année: </string>
+    <string name="m2_Rated">Classé: </string>
+    <string name="m2_Released">libéré: </string>
+    <string name="m2_Runtime">Durée: </string>
+    <string name="m2_Genre">Genre: </string>
+    <string name="m2_Director">Réalisateur: </string>
+    <string name="m2_Actors">En vedette: </string>
+    <string name="m2_Plot">Récit: </string>
+    <string name="m2_back">Retour</string>
+    <string name="m2_save">Enregistrer le film</string>
+    <string name="m2_delete">Effacer</string>
+    <string name="m2_noMovie">Film introuvable</string>
+    <string name="m2_deleteMovie">Film supprimé</string>
+    <string name="m2_saveMovie">Film enregistré</string>
+    <string name="m2_saveCount">Nombre total de films enregistrés: </string>
+    <string name="m2_saveShort">Plus court film: </string>
+    <string name="m2_saveLong">Le plus long film: </string>
+    <string name="m2_saveAvg">Durée moyenne du film: </string>
+    <string name="m2_saveYear">Année de sortie moyenne: </string>
+    <string name="m2_helpInfo">Aide: Entrez un nom de film dans la barre de recherche pour trouver
+        ses informations. Vous pouvez enregistrer des informations sur les films sur votre appareil.
+        Cliquez sur les films enregistrés pour voir leurs informations ou supprimez-les.</string>
 
     <string name="m3_help_title">Radio-Canada Nouvelles Aide</string>
     <string name="m3_help_message">Contenue de la section Aide pour Radio-Canada Nouvelles</string>
@@ -33,13 +64,19 @@
     <string name="m4_station_name">Nom de Station</string>
     <string name="m4_show_mylist">Montrer Ma Liste</string>
     <string name="m4_lv_mylist">Ma Liste</string>
-    <string name="m4_lv_search_result">Résultat</string>
+    <string name="m4_db_searching_wait">En train de recherche, Veuillez patienter ...... </string>
+    <string name="m4_db_search_result">Resultat: </string>
+    <string name="m4_db_search_result_no_match">Aucun resultat trouver!</string>
+    <string name="m4_internet_error">Aucun connection internet.\nVeuillez verifier votre connexion internet.</string>
     <string name="m4_help_title">Circuit de Bus OC Aide</string>
-    <string name="m4_help_message">Contenue de la section Aide pour Circuit de Bus OC</string>
+    <string name="m4_help_message">Appuyer sur le bouton pour selectioner la methode de recherche.\nAppuyer \'Chercher par\' bouton pour commencer.\nChoisisez un des resultats ou \'Ma Liste\' examiner les details du bus.\nVous pouvez enregistrez vos resultats a \'Ma Liste\' ou retirer votre resultat de \'Ma Liste\'.</string>
     <string name="m4_searchbtn">Chercher par</string>
     <string name="m4_dialog_title">Veuillez Confirmer</string>
     <string name="m4_remove_button">Retirer de ma Liste</string>
     <string name="m4_add_button">Ajouter à ma Liste</string>
     <string name="m4_refresh_button">Rafraîchir les Détails</string>
     <string name="m4_dialog_message">Enlever la station et bus de votre liste?</string>
+    <string name="m4_snackbar_message">Retirer de Ma Liste; Ajouter a Ma Liste; or Rafraichir les Details.</string>
+    <string name="m4_snackbar_search">Chercher par Code de l\'Arret, Chercher par le nom de l\'Arret, Chercher par le nombre du Circuit, Ou Appuyer sur un objets pour les Details.</string>
+    <string name="m4_internet_wait">Recherche par internet, Veuillez patienter ......</string>
 </resources>

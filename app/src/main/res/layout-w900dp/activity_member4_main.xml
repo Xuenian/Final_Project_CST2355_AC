@@ -55,15 +55,6 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/ShowMyListButtonM4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/ListViewM4"
-        android:layout_below="@+id/toolbarm4"
-        android:text="@string/m4_show_mylist"
-        android:textAllCaps="false" />
-
     <ListView
         android:id="@+id/ListViewM4"
         android:layout_width="400dp"
@@ -131,13 +122,12 @@
     </RadioGroup>
 
     <FrameLayout
-        android:id="@+id/frameLayout"
+        android:id="@+id/frameLayoutdetailsmainm4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbarm4"
         android:layout_toRightOf="@+id/ListViewM4"
         android:layout_alignParentBottom="true">
-
     </FrameLayout>
 
 </RelativeLayout>
