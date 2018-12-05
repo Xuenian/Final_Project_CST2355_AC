@@ -7,11 +7,13 @@ import android.util.Log;
 
 public class OCDatabaseHelper extends SQLiteOpenHelper {
     protected static String DATABASE_NAME = "OCRoute.db";
-    protected static int VERSION_NUM = 1;
-    protected static String TABLE_NAME = "UserStation_Table";
+    protected static int VERSION_NUM = 2;
+    protected static String TABLE_NAME = "UserStationList_Table";
 
-    public final static String KEY_ID = "Station_id";
-    public final static String KEY_MESSAGE = "StationMsg";
+    public final static String KEY_ID = "List_id";
+    public final static String STATION_NUMBER = "StationNumber";
+    public final static String BUS_LINE = "BusLine";
+    public final static String STATION_NAME = "StationName";
 
     public OCDatabaseHelper(Context ctx){
         super(ctx, DATABASE_NAME, null, VERSION_NUM);
@@ -19,7 +21,7 @@ public class OCDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db){
-        db.execSQL("CREATE TABLE " +TABLE_NAME+"("+KEY_ID+" INTEGER PRIMARY KEY, "+KEY_MESSAGE+" text);");
+        db.execSQL("CREATE TABLE " +TABLE_NAME+"("+KEY_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+STATION_NUMBER+" text, "+BUS_LINE+" text, "+STATION_NAME+" text);");
         Log.i("OCDatabaseHelper", "Calling onCreate");
     }
 
@@ -29,5 +31,4 @@ public class OCDatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
         Log.i("OCDatabaseHelper", "Calling onUpgrade, oldVersion=" + oldVer + " newVersion=" + newVer);
     }
-
 }

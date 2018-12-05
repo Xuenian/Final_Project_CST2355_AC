@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">CST2355 Projet de Groupe</string>
+    <string name="project_title">CST2355 Projet de Groupe\nCentre d\'Information</string>
+    <string name="version_info">Version: Novembre, 2018</string>
+    <string name="course_message">Algonquin College - Programmeur\nCST2355-020-022-2018Fall\nProfessor: Eric Torunski, Mohammad Kadhum</string>
+    <string name="group_message">===== Groupe 008 - Membres: =====</string>
+    <string name="member1_name">Claire Hendrickson-Jones</string>
+    <string name="member2_name">Galen Reid</string>
+    <string name="member3_name">Vithura Sribalachandran</string>
+    <string name="member4_name">XueNian Jiang</string>
+    <string name="button1_name">Nutrition Alimentaire BD</string>
+    <string name="button2_name">Synopsis: OMDb </string>
+    <string name="button3_name">Radio-Canada Nouvelles</string>
+    <string name="button4_name">Circuit de Bus OC</string>
+    <string name="heip_item_name">Aide</string>
+    <string name="about_item_name">À propos</string>
+    <string name="positive_yes">Oui</string>
+    <string name="positive_ok">Ok</string>
+    <string name="negative_no">Non</string>
+    <string name="negative_cancel">Annuler</string>
+
+    <string name="m1_help_title">Nutrition Alimentaire Aide</string>
+    <string name="m1_help_message">Contenue de la section Aide pour Nutrition Alimentaire</string>
+
+    <string name="m2_help_title">Synopsis Aide</string>
+    <string name="m2_help_message">Contenue de la section Aide pour Synopsis</string>
+
+    <string name="m3_help_title">Radio-Canada Nouvelles Aide</string>
+    <string name="m3_help_message">Contenue de la section Aide pour Radio-Canada Nouvelles</string>
+
+    <string name="m4_station_number">#Station</string>
+    <string name="m4_bus_line">#Bus</string>
+    <string name="m4_station_name">Nom de Station</string>
+    <string name="m4_show_mylist">Montrer Ma Liste</string>
+    <string name="m4_lv_mylist">Ma Liste</string>
+    <string name="m4_lv_search_result">Résultat</string>
+    <string name="m4_help_title">Circuit de Bus OC Aide</string>
+    <string name="m4_help_message">Contenue de la section Aide pour Circuit de Bus OC</string>
+    <string name="m4_searchbtn">Chercher par</string>
+    <string name="m4_dialog_title">Veuillez Confirmer</string>
+    <string name="m4_remove_button">Retirer de ma Liste</string>
+    <string name="m4_add_button">Ajouter à ma Liste</string>
+    <string name="m4_refresh_button">Rafraîchir les Détails</string>
+    <string name="m4_dialog_message">Enlever la station et bus de votre liste?</string>
+</resources>

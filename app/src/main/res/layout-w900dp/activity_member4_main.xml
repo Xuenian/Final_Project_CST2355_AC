@@ -66,12 +66,12 @@
 
     <ListView
         android:id="@+id/ListViewM4"
-        android:layout_width="wrap_content"
+        android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/listtitleBarM4"
         android:layout_above="@+id/SearchButtonM4"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
+        android:layout_alignParentEnd="false"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="6dp" />
 
@@ -95,16 +95,16 @@
         android:id="@+id/SearchButtonM4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="false"
         android:layout_above="@+id/radiogroupsearchM4"
+        android:layout_alignRight="@+id/ListViewM4"
         android:text="@string/m4_searchbtn"
         tools:layout_editor_absoluteX="288dp"
         tools:layout_editor_absoluteY="460dp" />
 
     <RadioGroup
         android:id="@+id/radiogroupsearchM4"
-        android:layout_width="match_parent"
+        android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal">
@@ -129,5 +129,15 @@
             android:layout_weight="1"
             android:text="@string/m4_bus_line" />
     </RadioGroup>
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbarm4"
+        android:layout_toRightOf="@+id/ListViewM4"
+        android:layout_alignParentBottom="true">
+
+    </FrameLayout>
 
 </RelativeLayout>

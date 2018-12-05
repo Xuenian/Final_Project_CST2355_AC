@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">CST2335_Group_Project</string>
-    <string name="welcome_message">Welcome to Information Center</string>
+    <string name="app_name">CST2355 Group Project</string>
+    <string name="project_title">CST2355 Group Project\nInformation Center</string>
+    <string name="version_info">Version: Novermber, 2018</string>
     <string name="course_message">Algonquin College - Computer Programmer\nCST2355-020-022-2018Fall\nProfessor: Eric Torunski, Mohammad Kadhum</string>
-    <string name="group_message">========== Group 008 - Members: ==========</string>string>
+    <string name="group_message">===== Group 008 - Members: =====</string>
     <string name="member1_name">Claire Hendrickson-Jones</string>
     <string name="member2_name">Galen Reid</string>
     <string name="member3_name">Vithura Sribalachandran</string>
@@ -11,10 +12,31 @@
     <string name="button2_name">Movie Info: OMDb </string>
     <string name="button3_name">CBC News Reader</string>
     <string name="button4_name">OC Bus Route</string>
-    <string name="ok">Yes</string>
-    <string name="cancel">No</string>
+    <string name="heip_item_name">Help</string>
+    <string name="about_item_name">About</string>
+    <string name="positive_yes">Yes</string>
+    <string name="positive_ok">Ok</string>
+    <string name="negative_no">No</string>
+    <string name="negative_cancel">Cancel</string>
 
-    <string name="m4_searchbtn">Search</string>
+    <string name="m1_help_title">Food Nutrition Help</string>
+    <string name="m1_help_message">Help Message for Food Nutrition</string>
+
+    <string name="m2_help_title">Movie Info Help</string>
+    <string name="m2_help_message">Help Message for Movie Info</string>
+
+    <string name="m3_help_title">CBC News Reader Help</string>
+    <string name="m3_help_message">Help Message for CBC News Reader</string>
+
+    <string name="m4_station_number">Station#</string>
+    <string name="m4_bus_line">Bus#</string>
+    <string name="m4_station_name">Station Name</string>
+    <string name="m4_show_mylist">Show My List</string>
+    <string name="m4_lv_mylist">My List</string>
+    <string name="m4_lv_search_result">Search Result</string>
+    <string name="m4_help_title">OC Bus Route Help</string>
+    <string name="m4_help_message">Help Message for OC Bus Route</string>
+    <string name="m4_searchbtn">Search by</string>
     <string name="m4_dialog_title">Please confirm</string>
     <string name="m4_dialog_message">Remove the station form your list?</string>
 
@@ -23,4 +45,8 @@
     <string name="m1SearchButton">Search</string>
     <string name="m1FavButton">Favourites</string>
 
+    <string name="m4_remove_button">Remove from My List</string>
+    <string name="m4_add_button">Add to My List</string>
+    <string name="m4_refresh_button">Refresh Details</string>
+    <string name="m4_dialog_message">Remove the station and bus form your list?</string>
 </resources>

@@ -6,55 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".Member3MainActivity">
 
-    <LinearLayout
-        android:id="@+id/buttonBarM3"
-        style="@android:style/ButtonBar"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarm3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/member3Btn1"
-            style="@android:style/ButtonBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/button1_name"
-            android:textAllCaps="false"
-            android:textSize="12sp" />
-
-        <Button
-            android:id="@+id/member3Btn2"
-            style="@android:style/ButtonBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/button2_name"
-            android:textAllCaps="false"
-            android:textSize="12sp" />
-
-        <Button
-            android:id="@+id/member3Btn4"
-            style="@android:style/ButtonBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/button4_name"
-            android:textAllCaps="false"
-            android:textSize="12sp" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/textViewM3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/buttonBarM3"
-        android:text="@string/button3_name"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="@android:color/holo_blue_dark"
-        android:textSize="18sp" />
+        app:title="@string/button3_name"
+        app:titleTextAppearance="@style/TextAppearance.AppCompat"
+        app:titleTextColor="@android:color/holo_blue_dark" />
 
 </RelativeLayout>
