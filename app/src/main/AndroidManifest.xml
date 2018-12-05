@@ -19,6 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Member1MainActivity" />
+        <activity android:name=".M1FavActivity"/>
+        <activity android:name=".M1FavDetails"/>
         <activity android:name=".Member2MainActivity" />
         <activity android:name=".Member3MainActivity" />
         <activity android:name=".Member4MainActivity" />
