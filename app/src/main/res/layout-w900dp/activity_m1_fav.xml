@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".M1FavActivity">
 
-
     <TextView
         android:id="@+id/m1Header"
         android:layout_width="wrap_content"
@@ -32,11 +31,9 @@
         android:layout_width="75dp"
         android:layout_height="wrap_content"
         android:id="@+id/m1BackButton"
-
-        android:text="@string/m1Back"
         android:textSize="10sp"
+        android:text="@string/m1Back"
         android:layout_alignParentBottom="true"
-
         android:layout_toRightOf="@id/m1SearchFavsButton"
         />
 
@@ -53,9 +50,19 @@
         android:layout_width="75dp"
         android:layout_height="wrap_content"
         android:text="@string/m1SearchButton"
-        android:textSize="10sp"
+        android:textSize="10dp"
         android:layout_alignParentBottom="true"
         android:layout_toEndOf="@id/m1SearchFavsBar"
         />
+
+    <FrameLayout
+        android:id="@+id/m1FrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@id/m1Favs"
+
+        android:gravity="center">
+
+    </FrameLayout>
 
 </RelativeLayout>

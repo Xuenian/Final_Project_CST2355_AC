@@ -20,10 +20,27 @@
     <string name="negative_cancel">Annuler</string>
 
     <string name="m1_help_title">Nutrition Alimentaire Aide</string>
-    <string name="m1_help_message">Contenue de la section Aide pour Nutrition Alimentaire</string>
-    <string name="m1SearchBar">Enter a food</string>
-    <string name="m1SearchButton">Search</string>
-    <string name="m1FavButton">Favourites</string>
+
+    <string name="m1_help_message">App de nutrition par Claire Hendrickson-Jones\nversion 1.0\n cherchez des aliments et ajouter aux favoris</string>
+    <string name="m1SearchBar">Entrez un aliment</string>
+    <string name="m1SearchButton">Chercher</string>
+    <string name="m1FavButton">Favoris</string>
+    <string name="m1Save">Sauver</string>
+    <string name="m1FoodAddedMessage"> ajouté aux favoris</string>
+    <string name="m1Result">Resultat</string>
+    <string name="m1Delete">Effacer</string>
+    <string name="m1AddATag">Ajouter un tag</string>
+    <string name="m1add">Ajouter</string>
+
+    <string name="m1SearchFavsBar">Cherchez par tag</string>
+    <string name="m1NoResults">aucun résultat</string>
+    <string name="m1Back">Retour</string>
+    <string name="m1ResultsForTag">Resultats pour tag </string>
+    <string name="m1TotalCalories">Calories total:</string>
+    <string name="m1AvgCalories">Calories moyenne:</string>
+
+
+
 
     <string name="m2_help_title">Synopsis Aide</string>
     <string name="m2_help_message">cliquez sur le bouton daide</string>

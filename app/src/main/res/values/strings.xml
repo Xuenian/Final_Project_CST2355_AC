@@ -20,10 +20,23 @@
     <string name="negative_cancel">Cancel</string>
 
     <string name="m1_help_title">Food Nutrition Help</string>
-    <string name="m1_help_message">Help Message for Food Nutrition</string>
+    <string name="m1_help_message">Food Nutrition app by Claire Hendrickson-Jones\nversion 1.0\n search for foods and add them to your favourites</string>
     <string name="m1SearchBar">Enter a food</string>
     <string name="m1SearchButton">Search</string>
     <string name="m1FavButton">Favourites</string>
+    <string name="m1Save">Save</string>
+    <string name="m1FoodAddedMessage"> added to favourites</string>
+    <string name="m1Result">Result</string>
+    <string name="m1Delete">Delete</string>
+    <string name="m1AddATag">Add a tag</string>
+    <string name="m1add">add</string>
+    <string name="m1NoResults">no results</string>
+    <string name="m1Back">Back</string>
+    <string name="m1ResultsForTag">Results for tag </string>
+    <string name="m1TotalCalories">Total calories:</string>
+    <string name="m1AvgCalories">Average calories:</string>
+
+    <string name="m1SearchFavsBar">Search by tag</string>
 
     <string name="m2_help_title">Movie Info Help</string>
     <string name="m2_help_message">Please click Help button</string>

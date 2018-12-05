@@ -15,12 +15,29 @@
         app:titleTextAppearance="@style/TextAppearance.AppCompat"
         app:titleTextColor="@android:color/holo_blue_dark" />
 
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/m1SearchResults"
+        android:layout_below="@id/toolbarm1"
+        android:layout_above="@id/m1ProgressBar">
+
+    </ListView>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/m1ProgressBar"
+        android:layout_above="@id/m1SearchBar"
+
+        />
+
 
     <EditText
         android:id="@+id/m1SearchBar"
         android:layout_width="175dp"
         android:layout_height="wrap_content"
-        android:text="@string/m1SearchBar"
+        android:hint="@string/m1SearchBar"
         android:layout_alignParentBottom="true"
         />
     <Button
@@ -41,6 +58,8 @@
 
 
         />
+
+
 
 
 </RelativeLayout>
