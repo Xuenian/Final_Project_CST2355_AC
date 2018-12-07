@@ -27,7 +27,7 @@ public class M2DatabaseHelper extends SQLiteOpenHelper {
      */
 
     public static String Database_name = "Movie.db";
-    public static int VERSION_NUM = 5;
+    public static int VERSION_NUM = 6;
     public final static String Key_table = "Movies";
     public final static String Key_ID = "Name";
     public final static String Key_year = "year";

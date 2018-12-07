@@ -1,11 +1,20 @@
 package ca.algonquinstudents.cst2335_group_project;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.TextView;
+
+/**
+ *  Start activity of CBC news reader (Member3: Vithura Sribalachandran)
+ */
+
 
 public class Member3MainActivity extends AppCompatActivity {
 
@@ -18,6 +27,9 @@ public class Member3MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarm3);
         setSupportActionBar(toolbar);
+
+        TextView comingSoon = findViewById(R.id.textComingSoonM3);
+        comingSoon.setText("Coming Soon ......\n\nBy "+getString(R.string.member3_name));
 
         toolitem = new ToolbarMenu(Member3MainActivity.this);
     }
@@ -32,8 +44,12 @@ public class Member3MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent;
-        intent = toolitem.onToolbarItemSelected(item);
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+        Intent intent = toolitem.onToolbarItemSelected(item);
         if( intent != null) {
             startActivity(intent);
             Member3MainActivity.this.finish();

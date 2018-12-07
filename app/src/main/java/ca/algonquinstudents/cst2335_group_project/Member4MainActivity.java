@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -33,6 +34,11 @@ import static ca.algonquinstudents.cst2335_group_project.M4OCDataBaseHelper.ROUT
 import static ca.algonquinstudents.cst2335_group_project.M4OCDataBaseHelper.STOP_CODE;
 import static ca.algonquinstudents.cst2335_group_project.M4OCDataBaseHelper.STOP_NAME;
 
+/**
+ * @author Xue Nian Jiang
+ *
+ * Start activity of OC bus route (Member4: Xue Nian Jiang)
+ */
 
 public class Member4MainActivity extends AppCompatActivity {
 
@@ -60,6 +66,7 @@ public class Member4MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_member4_main);
 
+        // set toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarm4);
         setSupportActionBar(toolbar);
 
@@ -71,6 +78,7 @@ public class Member4MainActivity extends AppCompatActivity {
 
         searchText = (EditText)findViewById(R.id.SearchTextM4);
 
+        //initial radio button and set listener
         if (!(rBtn1.isChecked()||rBtn2.isChecked()||rBtn3.isChecked())) {
             rBtn3.setChecked(true);
             searchMethod = 1;
@@ -98,8 +106,10 @@ public class Member4MainActivity extends AppCompatActivity {
             }
         });
 
+        //check for fragment
         frameExists = (findViewById(R.id.frameLayoutdetailsmainm4)!=null);
 
+        //setup list view
         listTitle = findViewById(R.id.ListViewNameM4);
         ListView stationView = findViewById(R.id.ListViewM4);
         Button searchBtn = findViewById(R.id.SearchButtonM4);
@@ -108,13 +118,16 @@ public class Member4MainActivity extends AppCompatActivity {
         stAdapter = new StationAdapter(this);
         stationView.setAdapter(stAdapter);
 
+        // create connection to database once for whole OC activity
         if (dbOCTranHelper == null) {
             dbOCTranHelper = new M4OCDataBaseHelper(this);
             db = dbOCTranHelper.getWritableDatabase();
         }
 
+        // get My List from database and show on list view
         refreshMessageCursorAndListView();
 
+        //set search button listener
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -132,6 +145,7 @@ public class Member4MainActivity extends AppCompatActivity {
             }
         });
 
+        //set list view item selection listener
         stationView.setOnItemClickListener(new AdapterView.OnItemClickListener( ) {
             @Override
             public void onItemClick(AdapterView<?> adpV, View v, int i, long l) {
@@ -148,6 +162,7 @@ public class Member4MainActivity extends AppCompatActivity {
                 infoToPass.putBoolean("Removable", true);
 
                 if(frameExists){
+                    //for frame using fragment
                     if (isFirstClick)
                         isFirstClick=false;
                     else
@@ -165,6 +180,7 @@ public class Member4MainActivity extends AppCompatActivity {
                     ftrans.commit(); //actually load it
                 }
                 else{
+                    //no frame using individual activity to display details
                     Intent intent = new Intent(Member4MainActivity.this, M4BusStopDetailsActivity.class);
                     intent.putExtras(infoToPass); //send info
                     startActivity(intent);
@@ -174,6 +190,7 @@ public class Member4MainActivity extends AppCompatActivity {
         Snackbar.make(searchBtn, R.string.m4_snackbar_search, Snackbar.LENGTH_LONG).show();
     }
 
+    // setup toolbar menu
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.main_menu, menu);
         menu.getItem(4).setVisible(false);
@@ -182,8 +199,14 @@ public class Member4MainActivity extends AppCompatActivity {
         return true;
     }
 
+    // action on selected toolbar menu item
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
         Intent intent = toolItem.onToolbarItemSelected(item);
         if( intent != null) {
             startActivity(intent);
@@ -197,6 +220,10 @@ public class Member4MainActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
+
+    /**
+     * query the database for My List and show the result in list view
+     */
     public void refreshMessageCursorAndListView() {
         statNameList.clear();
         stAdapter.notifyDataSetChanged();
@@ -212,6 +239,9 @@ public class Member4MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * this class extends ArrayAdapter and is the adapter to be set on my list view
+     */
     private class StationAdapter extends ArrayAdapter<String> {
         public StationAdapter(Context ctx) {
             super(ctx, 0);

@@ -9,6 +9,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+/**
+ * @author Xue Nian Jiang
+ *
+ * Display the details of the selected item from My List or search result
+ * using the fragment in individul activity which have no frame.
+ */
+
 public class M4BusStopDetailsActivity extends AppCompatActivity {
 
     private ToolbarMenu toolitem;
@@ -18,12 +25,12 @@ public class M4BusStopDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bus_stop_details_m4);
 
+        //setup toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarm4);
         setSupportActionBar(toolbar);
 
         toolitem = new ToolbarMenu(M4BusStopDetailsActivity.this);
-        Bundle infoToPass =  getIntent().getExtras();
-        //repeat from tablet section:
+        Bundle infoToPass =  getIntent().getExtras(); //get passed information
 
         M4MessageFragment newFragment = new M4MessageFragment();
         newFragment.iAmTablet = false;

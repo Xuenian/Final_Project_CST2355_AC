@@ -10,7 +10,32 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+/**
+ * @author Xue Nian Jiang   (Credit for online tutorials)
+ *
+ * Database Helper class for installing the OC SQLite database
+ * The pre-build database: OCRouteStop.db will be distributed with APk
+ * If this database is not exist or need upgrade, the database will be copied from assets
+ * There are two tables in database: RouteStopTable and UserBusStopList
+ * RouteStopTable is generated from google_transit.zip which is download from OC website
+ *                  search this table by route number, stop code or stop name
+ *                  user can easily get a search result list of route, stop code and stop name
+ * UserBusStopList has the same structure as the RouteStopTable and keeps user maintained list: My List
+ */
+
 public class M4OCDataBaseHelper extends SQLiteOpenHelper {
+    /**
+     * @param OC_DATABASE_NAME - Holds the name of the database
+     * @param OC_VERSION_NUM - Keeps track of the current version
+     * @param OC_TABLE_NAME - Holds the name of the OC route stop table
+     * @param ML_TABLE_NAME - Holds the name of the user my list table
+     *
+     * @param KEY_ID - Holds the name of the ID column in the tables
+     * @param ROUTE - Holds the name of the route column in the tables
+     * @param STOP_CODE - Holds the name of the stop code column in the tables
+     * @param STOP_NAME - Holds the name of the stop name column in the tables
+     */
+
     protected static String OC_DATABASE_NAME = "OCRouteStop.db";
     protected static int OC_VERSION_NUM = 1;
     protected static String OC_TABLE_NAME = "RouteStopTable";
@@ -30,6 +55,11 @@ public class M4OCDataBaseHelper extends SQLiteOpenHelper {
         this.ctx = ctx;
     }
 
+    /**
+     * Copy the Database from assets to current working environment
+     *
+     * @param db
+     */
     private void copyDatabaseFromAssets(SQLiteDatabase db) {
         Log.i("M4OCDataBaseHelper", "copy OC Database");
         InputStream inputStream = null;
@@ -66,27 +96,38 @@ public class M4OCDataBaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    /**
+     * the Database did not exist, set the copy db flag.
+     *
+     * @param db
+     */
     @Override
     public void onCreate(SQLiteDatabase db){
         Log.i("M4OCDataBaseHelper", "onCreate db");
         createDb = true;
     }
 
+    /**
+     * the Database needs upgrade, set the upgrade db flag.
+     *
+     * @param db
+     */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVer, int newVer){
         Log.i("M4OCDataBaseHelper", "onUpgrade db "+oldVer+" to "+newVer);
         upgradeDb = true;
     }
 
+    /**
+     * Check the Database copy and upgrade flag to do the copy db.
+     *
+     * @param db
+     */
     @Override
     public void onOpen(SQLiteDatabase db) {
         Log.i("M4OCDataBaseHelper", "onOpen db");
-        if (createDb) {
+        if (createDb || upgradeDb) {
             createDb = false;
-            copyDatabaseFromAssets(db);
-
-        }
-        if (upgradeDb) {
             upgradeDb = false;
             copyDatabaseFromAssets(db);
         }

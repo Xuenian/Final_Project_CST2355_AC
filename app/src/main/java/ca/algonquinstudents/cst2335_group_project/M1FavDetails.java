@@ -4,19 +4,15 @@ import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.ContentValues;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 
 import static ca.algonquinstudents.cst2335_group_project.M1DatabaseHelper.M1TAG;
+import static ca.algonquinstudents.cst2335_group_project.Member1MainActivity.db1;
 
 public class M1FavDetails extends Activity {
 
 
-    /**
-     * used if we need to add a tag
-     */
-    SQLiteDatabase db;
     /**
      * the frame layout to fill with fragment
      */
@@ -32,8 +28,6 @@ public class M1FavDetails extends Activity {
         fl = findViewById(R.id.m1PhoneFrameLayout);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.m1_fav_details);
-        M1DatabaseHelper dbHelper = new M1DatabaseHelper(this);
-        db = dbHelper.getWritableDatabase();
 
         Bundle infoToPass =  getIntent().getExtras();
         M1FavFragment newFragment = new M1FavFragment();
@@ -57,7 +51,7 @@ public class M1FavDetails extends Activity {
     public void addATag(String name, String tag){
         ContentValues cv = new ContentValues();
         cv.put(M1TAG, tag);
-        db.update(M1DatabaseHelper.TABLE_NAME, cv, "Name = ?", new String[]{name});
+        db1.update(M1DatabaseHelper.M1_TABLE_NAME, cv, "Name = ?", new String[]{name});
         //db.up
     }
 }

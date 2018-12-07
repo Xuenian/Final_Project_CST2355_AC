@@ -3,7 +3,6 @@ package ca.algonquinstudents.cst2335_group_project;
 import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
@@ -19,23 +18,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -43,24 +33,27 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+
+import static ca.algonquinstudents.cst2335_group_project.M1DatabaseHelper.M1CALORIES;
+import static ca.algonquinstudents.cst2335_group_project.M1DatabaseHelper.M1FAT;
+import static ca.algonquinstudents.cst2335_group_project.M1DatabaseHelper.M1KEY_NAME;
+
+/**
+ *  Start activity of food nutrition (Member1: Claire Hendrickson-Jones)
+ */
 
 public class Member1MainActivity extends AppCompatActivity {
     /**
      * static strings for accessing DB and logging purposes
      */
-    private static final String ACTIVITY_NAME="Member1MainActivity";
+    private static final String ACTIVITY_NAME = "Member1MainActivity";
     private Button favButton, searchButton;
-    private final static String KEY_NAME = "Name";
-    private final static String CALORIES = "Calories";
-    private final static String FAT = "Fat";
-
 
     /**
      * used for querying and updating the DB
      */
-    private M1DatabaseHelper dbHelper;
-    private SQLiteDatabase db;
+    protected static M1DatabaseHelper dbHelper1 = null;
+    protected static SQLiteDatabase db1;
 
     /**
      * used for AsyncTask
@@ -71,7 +64,7 @@ public class Member1MainActivity extends AppCompatActivity {
     private ProgressBar progressBar;
 
     private String foodToSearch;
-    private ToolbarMenu toolitem;
+    private ToolbarMenu toolItem;
     private List<Food> searchResults = new ArrayList<>();
     private ListView showResults;
 
@@ -87,6 +80,7 @@ public class Member1MainActivity extends AppCompatActivity {
 
     /**
      * sets view, finds important items in that view, and sets onClick listeners for them
+     *
      * @param savedInstanceState
      */
 
@@ -96,14 +90,16 @@ public class Member1MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_member1_main);
         favButton = findViewById(R.id.m1FavButton);
         searchButton = findViewById(R.id.m1SearchButton);
-        searchBar=findViewById(R.id.m1SearchBar);
+        searchBar = findViewById(R.id.m1SearchBar);
 
-        showResults=findViewById(R.id.m1SearchResults);
+        showResults = findViewById(R.id.m1SearchResults);
         resultsAdapter = new FoodAdapter(this);
         showResults.setAdapter(resultsAdapter);
 
-        dbHelper=new M1DatabaseHelper(Member1MainActivity.this);
-        db = dbHelper.getWritableDatabase();
+        if (dbHelper1 == null) {
+            dbHelper1 = new M1DatabaseHelper(Member1MainActivity.this);
+            db1 = dbHelper1.getWritableDatabase();
+        }
 
         progressBar = findViewById(R.id.m1ProgressBar);
         progressBar.setVisibility(View.INVISIBLE);
@@ -112,7 +108,7 @@ public class Member1MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarm1);
         setSupportActionBar(toolbar);
 
-        toolitem = new ToolbarMenu(Member1MainActivity.this);
+        toolItem = new ToolbarMenu(Member1MainActivity.this);
 
 
         showResults.setOnItemClickListener((arg0, view, position, id) -> {
@@ -148,39 +144,43 @@ public class Member1MainActivity extends AppCompatActivity {
         });
 
 
-
     }
 
 
     /**
      * setting up toolbar menu
+     *
      * @param menu
      * @return
      */
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.main_menu, menu);
-        menu.getItem(0).setVisible(false);
-        toolitem.setHelpTitle(getString(R.string.m1_help_title));
-        toolitem.setHelpMessage(getString(R.string.m1_help_message));
+        menu.getItem(1).setVisible(false);
+        toolItem.setHelpTitle(getString(R.string.m1_help_title));
+        toolItem.setHelpMessage(getString(R.string.m1_help_message));
         return true;
     }
 
     /**
      * switch activity
+     *
      * @param item
      * @return
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent;
-        intent = toolitem.onToolbarItemSelected(item);
-        if (intent != null) {
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+        Intent intent = toolItem.onToolbarItemSelected(item);
+        if( intent != null) {
             startActivity(intent);
             Member1MainActivity.this.finish();
         }
         return super.onOptionsItemSelected(item);
     }
-
 
     /**
      * inserts param to database, and displays a notification that it was added
@@ -191,10 +191,10 @@ public class Member1MainActivity extends AppCompatActivity {
         Snackbar.make(searchBar, foodAddedMessage, Snackbar.LENGTH_LONG).show();
 
 
-        cValues.put(KEY_NAME, food.name );
-        cValues.put(CALORIES, food.calories);
-        cValues.put(FAT, food.fat);
-        db.insert(M1DatabaseHelper.TABLE_NAME,"NullColumnName", cValues);
+        cValues.put(M1KEY_NAME, food.name );
+        cValues.put(M1CALORIES, food.calories);
+        cValues.put(M1FAT, food.fat);
+        db1.insert(M1DatabaseHelper.M1_TABLE_NAME,"NullColumnName", cValues);
 
     }
 
@@ -238,32 +238,28 @@ public class Member1MainActivity extends AppCompatActivity {
             URL url = null;
             InputStream is;
 
-
             try {
 
                 url = new URL(urlString);
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                conn.setReadTimeout(100000 /* milliseconds */);
-                conn.setConnectTimeout(150000 /* milliseconds */);
+                conn.setReadTimeout(100000);     // milliseconds
+                conn.setConnectTimeout(150000);  // milliseconds
                 conn.setRequestMethod("GET");
                 conn.setDoInput(true);
                 // Starts the query
 
                 is = conn.getInputStream();
 
-
-
-
-
-
                 JsonReader jsonReader = new JsonReader(new InputStreamReader(is, "UTF-8"));
                 try {
                     searchResults = readFoodsArray2(jsonReader);
                 } finally {
                     jsonReader.close();
+                    conn.disconnect();
                 }
 
-            } catch (IOException e) { }
+            } catch (IOException e) {  }
+
             return "";
 
         }
@@ -507,7 +503,7 @@ public class Member1MainActivity extends AppCompatActivity {
     /**
      * private class to use on our ListView
      */
-    private class FoodAdapter extends ArrayAdapter<Food> {
+   private class FoodAdapter extends ArrayAdapter<Food> {
 
         public FoodAdapter(Context ctx) {
             super(ctx, 0);
@@ -540,8 +536,6 @@ public class Member1MainActivity extends AppCompatActivity {
 
 
 
-
     }
-
 
 }

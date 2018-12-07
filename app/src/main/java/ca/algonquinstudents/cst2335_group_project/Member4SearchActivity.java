@@ -1,9 +1,7 @@
 package ca.algonquinstudents.cst2335_group_project;
 
-import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -22,7 +20,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -33,6 +30,13 @@ import static ca.algonquinstudents.cst2335_group_project.M4OCDataBaseHelper.ROUT
 import static ca.algonquinstudents.cst2335_group_project.M4OCDataBaseHelper.STOP_CODE;
 import static ca.algonquinstudents.cst2335_group_project.M4OCDataBaseHelper.STOP_NAME;
 import static ca.algonquinstudents.cst2335_group_project.Member4MainActivity.db;
+
+/**
+ * @author Xue Nian Jiang
+ *
+ * Activity for search and display the search result
+ * Get the search parameters passed from the Member4MainActivity
+ */
 
 public class Member4SearchActivity extends AppCompatActivity {
 
@@ -55,25 +59,31 @@ public class Member4SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_member4_search);
 
+        //setup toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarm4);
         setSupportActionBar(toolbar);
 
         toolitem = new ToolbarMenu(Member4SearchActivity.this);
 
+        // get search parameters passed from previous activity
         Bundle infoPassed =  getIntent().getExtras();
         String searchContent = infoPassed.getString("SearchContent");
         int searchMethod = infoPassed.getInt("SearchMethod");
 
+        //set list view
         stopView = findViewById(R.id.ListViewSearchM4);
         progressBar = findViewById(R.id.ProgressBarM4);
 
         sbAdapter = new Member4SearchActivity.StopBusAdapter(this);
         stopView.setAdapter(sbAdapter);
 
+        //check for fragment
         frameExists = (findViewById(R.id.frameLayoutdetailsearchm4)!=null);
 
+        // search database and display the search result in list view
         refreshMessageCursorAndListView(searchContent, searchMethod);
 
+        //set list view selected item listener
         stopView.setOnItemClickListener(new AdapterView.OnItemClickListener( ) {
             @Override
             public void onItemClick(AdapterView<?> adpV, View v, int i, long l) {
@@ -86,6 +96,7 @@ public class Member4SearchActivity extends AppCompatActivity {
                 Cursor cursor = db.rawQuery("SELECT * from " + ML_TABLE_NAME + " where " + KEY_ID + " = ?", new String[]{Long.toString(id)});
                 removeEnabled = (cursor.getCount()>0);
 
+                // pass the parameters of the selected item
                 Bundle infoToPass = new Bundle();
                 infoToPass.putString("StationNumber", msg[0]);
                 infoToPass.putString("BusLine", msg[1]);
@@ -94,6 +105,7 @@ public class Member4SearchActivity extends AppCompatActivity {
                 infoToPass.putLong("Position", i);
                 infoToPass.putBoolean("Removable", removeEnabled);
 
+                // check for fragment back action
                 if(frameExists){
                     if (isFirstClick)
                         isFirstClick=false;
@@ -123,6 +135,7 @@ public class Member4SearchActivity extends AppCompatActivity {
         Snackbar.make(progressBar, R.string.m4_snackbar_search, Snackbar.LENGTH_LONG).show();
     }
 
+    // setup toolbar menu
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.main_menu, menu);
         menu.getItem(4).setVisible(false);
@@ -131,6 +144,7 @@ public class Member4SearchActivity extends AppCompatActivity {
         return true;
     }
 
+    // action on selected toolbar menu item
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent intent = toolitem.onToolbarItemSelected(item);
@@ -146,6 +160,9 @@ public class Member4SearchActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
+    /**
+     * Search the database (RouteStopTable) table with selected method and show the search result in list view
+     */
     private void refreshMessageCursorAndListView(String search, int method) {
         searchResults.clear();
         sbAdapter.notifyDataSetChanged();
@@ -192,64 +209,9 @@ public class Member4SearchActivity extends AppCompatActivity {
         progressBar.setVisibility(View.INVISIBLE);
     }
 
-    public void deleteMessage(long id, String[] msg){
-        db.delete(ML_TABLE_NAME, KEY_ID+"=?", new String[]{Long.toString(id)});
-    }
-
-    public void addMessage(long id, String[] msg){
-        ContentValues cVals = new ContentValues(  );
-        cVals.put(KEY_ID, Long.toString(id));
-        cVals.put(STOP_CODE, msg[0]);
-        cVals.put(ROUTE, msg[1]);
-        cVals.put(STOP_NAME, msg[2]);
-        db.insert(ML_TABLE_NAME,"NullColumnName", cVals);
-    }
-
-    public void onActivityResult(int requestCode, int responseCode, Intent data) {
-        if (requestCode == 86) {
-            Log.i(ACTIVITY_NAME, "Returned to Member4Search.onActivityResult");
-        }
-
-        String msgPassed = "ListID: ";
-        String[] aMsg;
-        long idPassed = 0;
-        boolean remove;
-        int duration;
-        if (responseCode == Activity.RESULT_OK) {
-            idPassed = data.getLongExtra("ID", -1);
-            aMsg = data.getStringArrayExtra("Messages");
-            msgPassed += idPassed + "; Station#: ";
-            msgPassed += aMsg[0]+"; Bus: ";
-            msgPassed += aMsg[1]+"; Station Name: ";
-            msgPassed += aMsg[2];
-            remove = data.getBooleanExtra("Remove", false);
-
-            if (idPassed > 0) {
-                if (remove) {
-                    deleteMessage(idPassed, aMsg);
-                    msgPassed += " removed from My List.";
-                }
-                else{
-                    addMessage(idPassed, aMsg);
-                    msgPassed += " added to My List.";
-                }
-                duration = Toast.LENGTH_SHORT;
-            }
-            else {
-                msgPassed += " can't be removed.";
-                duration = Toast.LENGTH_SHORT;
-            }
-            setResult(Activity.RESULT_CANCELED, data);
-            finish();// go to previous activity
-        }
-        else{
-            msgPassed = "Return back, Click new item to see details.";
-            duration = Toast.LENGTH_SHORT;
-        }
-        Toast toast = Toast.makeText(Member4SearchActivity.this, msgPassed, duration);
-        toast.show();
-    }
-
+    /**
+     * this class extends ArrayAdapter and is the adapter to be set on search result list view
+     */
     private class StopBusAdapter extends ArrayAdapter<String> {
         public StopBusAdapter(Context ctx) {
             super(ctx, 0);

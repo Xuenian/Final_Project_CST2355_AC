@@ -64,8 +64,8 @@ public class Member2MainActivity extends AppCompatActivity {
      * @param movieBar - stores a reference of the progress bar
      * @param help - stores a reference of the help TextView for use with the fragment
      * @param movieName - Used to store the users input into the edit text
-     * @param dbHelper - An object of the database helper class
-     * @param db - An object of the SQLite database class
+     * @param dbHelper2 - An object of the database helper class
+     * @param db2 - An object of the SQLite database class
      * @param movieQuery - An object of the movieQuery inner class
      * @param option - An integer that keeps track of if the user is searching a new or saved movie
      * @param arrayAdapter - An array adapter to covert array objects into View items for list view
@@ -81,8 +81,8 @@ public class Member2MainActivity extends AppCompatActivity {
     ProgressBar movieBar;
     TextView help;
     String movieName;
-    public static M2DatabaseHelper dbHelper;
-    public static SQLiteDatabase db;
+    public static M2DatabaseHelper dbHelper2;
+    public static SQLiteDatabase db2;
     MovieQuery movieQuery;
     int option;
     ArrayAdapter<String> arrayAdapter;
@@ -127,10 +127,10 @@ public class Member2MainActivity extends AppCompatActivity {
         }
 
         //Reads the database
-        dbHelper = new M2DatabaseHelper(this);
-        db = dbHelper.getReadableDatabase();
+        dbHelper2 = new M2DatabaseHelper(this);
+        db2 = dbHelper2.getReadableDatabase();
 
-        Cursor c = db.rawQuery("select * from Movies", null);
+        Cursor c = db2.rawQuery("select * from Movies", null);
         c.moveToFirst();
         while (!c.isAfterLast()) {
             movieArray.add(c.getString(c.getColumnIndex(M2DatabaseHelper.Key_ID)));
@@ -307,9 +307,9 @@ public class Member2MainActivity extends AppCompatActivity {
 
             } else if (option == 2) {
 
-                db = dbHelper.getReadableDatabase();
+                db2 = dbHelper2.getReadableDatabase();
 
-                Cursor c = db.rawQuery("select * from Movies", null);
+                Cursor c = db2.rawQuery("select * from Movies", null);
                 c.moveToFirst();
                 while (!c.isAfterLast()) {
 
@@ -438,7 +438,7 @@ public class Member2MainActivity extends AppCompatActivity {
                 builder2.setPositiveButton(getString(R.string.m2_save), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
 
-                        db = dbHelper.getWritableDatabase();
+                        db2 = dbHelper2.getWritableDatabase();
                         ContentValues contentValues = new ContentValues();
                         contentValues.put(M2DatabaseHelper.Key_ID, title);
                         contentValues.put(M2DatabaseHelper.Key_year, year);
@@ -451,7 +451,7 @@ public class Member2MainActivity extends AppCompatActivity {
                         contentValues.put(M2DatabaseHelper.Key_plot, plot);
                         contentValues.put(M2DatabaseHelper.Key_url, poster);
 
-                        db.insert(M2DatabaseHelper.Key_table, null, contentValues);
+                        db2.insert(M2DatabaseHelper.Key_table, null, contentValues);
                         movieArray.add(title);
                         arrayAdapter.notifyDataSetChanged();
                         movieSearch.setText("");
@@ -509,10 +509,10 @@ public class Member2MainActivity extends AppCompatActivity {
 
                 builder2.setPositiveButton(getString(R.string.m2_delete), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        db = dbHelper.getWritableDatabase();
+                        db2 = dbHelper2.getWritableDatabase();
                         movieArray.remove(movieName);
                         arrayAdapter.notifyDataSetChanged();
-                        db.delete("Movies", "Name = ?", new String[]{movieName});
+                        db2.delete("Movies", "Name = ?", new String[]{movieName});
                         Toast toast = Toast.makeText(Member2MainActivity.this, getString(R.string.m2_deleteMovie), Toast.LENGTH_SHORT);
                         toast.show();
 

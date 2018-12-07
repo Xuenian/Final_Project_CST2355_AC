@@ -6,7 +6,6 @@ import android.app.FragmentTransaction;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,14 +15,11 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CursorAdapter;
 import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 
 import java.util.ArrayList;
 
@@ -31,15 +27,17 @@ import static ca.algonquinstudents.cst2335_group_project.M1DatabaseHelper.M1CALO
 import static ca.algonquinstudents.cst2335_group_project.M1DatabaseHelper.M1FAT;
 import static ca.algonquinstudents.cst2335_group_project.M1DatabaseHelper.M1KEY_NAME;
 import static ca.algonquinstudents.cst2335_group_project.M1DatabaseHelper.M1TAG;
+import static ca.algonquinstudents.cst2335_group_project.M1DatabaseHelper.M1_TABLE_NAME;
+import static ca.algonquinstudents.cst2335_group_project.Member1MainActivity.db1;
 
 public class M1FavActivity extends Activity {
     /**
      * static convenience variables for database access and logging purpsoes
      */
-    protected static String TABLE_NAME = "FAVOURITES";
-    private final static String KEY_NAME = "Name";
-    private final static String CALORIES = "Calories";
-    private final static String FAT = "Fat";
+//    protected static String TABLE_NAME = "FAVOURITES";
+//    private final static String KEY_NAME = "Name";
+//    private final static String CALORIES = "Calories";
+//    private final static String FAT = "Fat";
     public final static String ACTIVITY_NAME = "M1FavActivity";
 
     /**
@@ -52,7 +50,6 @@ public class M1FavActivity extends Activity {
     /**
      * database management variables
      */
-    SQLiteDatabase db;
     Cursor c;
 
     /**
@@ -108,9 +105,7 @@ public class M1FavActivity extends Activity {
             Log.i(ACTIVITY_NAME, "frameExists staying null");
         }
 
-        M1DatabaseHelper dbHelper = new M1DatabaseHelper(this);
-        db = dbHelper.getWritableDatabase();
-        c = db.rawQuery("select * from "+TABLE_NAME, null);
+        c = db1.rawQuery("select * from "+M1_TABLE_NAME, null);
         c.moveToFirst();
         while(!c.isAfterLast() ) {
 
@@ -177,7 +172,7 @@ public class M1FavActivity extends Activity {
         favData.clear();
         favAdapter.clear();
 
-        c = db.rawQuery("SELECT * from " + TABLE_NAME, null);
+        c = db1.rawQuery("SELECT * from " + M1_TABLE_NAME, null);
             Log.i(ACTIVITY_NAME, "Cursor's column count = " + c.getColumnCount());
             for (int i = 0; i < c.getColumnCount(); i++)
                 Log.i(ACTIVITY_NAME, "Cursor's column name: " + c.getColumnName(i));
@@ -185,9 +180,9 @@ public class M1FavActivity extends Activity {
             String name, calories, fat, tag;
             c.moveToFirst();
             while (!c.isAfterLast()) {
-                name = c.getString(c.getColumnIndex(KEY_NAME));
-                calories = Integer.toString(c.getInt(c.getColumnIndex(CALORIES)));
-                fat = Integer.toString(c.getInt(c.getColumnIndex(FAT)));
+                name = c.getString(c.getColumnIndex(M1KEY_NAME));
+                calories = Integer.toString(c.getInt(c.getColumnIndex(M1CALORIES)));
+                fat = Integer.toString(c.getInt(c.getColumnIndex(M1FAT)));
                 tag = c.getString(c.getColumnIndex(M1TAG));
                 String[] viewRow = {name, calories, fat, tag};
                 favData.add(viewRow);
@@ -201,7 +196,7 @@ public class M1FavActivity extends Activity {
      */
     public void deleteItem(String name){
         favData.remove(currentPosition);
-        db.delete(TABLE_NAME, "Name = ?", new String[]{name});
+        db1.delete(M1_TABLE_NAME, "Name = ?", new String[]{name});
         favAdapter.notifyDataSetChanged();
 
     }
@@ -214,7 +209,7 @@ public class M1FavActivity extends Activity {
     public void addATag(String name, String tag){
         ContentValues cv = new ContentValues();
         cv.put(M1TAG, tag);
-        db.update(M1DatabaseHelper.TABLE_NAME, cv, "Name = ?", new String[]{name});
+        db1.update(M1_TABLE_NAME, cv, "Name = ?", new String[]{name});
         refreshFavCursorAndListView();
         //db.up
     }
@@ -229,17 +224,17 @@ public class M1FavActivity extends Activity {
         if(!tag.isEmpty()) {
             //refreshFavCursorAndListView(true, tag);
             String query = "select * from FAVOURITES where Tag = \"" + tag + "\"";
-            Cursor t = db.rawQuery(query, null);
+            Cursor t = db1.rawQuery(query, null);
             if (t.getCount() != 0) {
                 int smallest = 0, largest = 0, tally = 0, total = 0, avg = 0;
                 t.moveToFirst();
-                smallest = t.getInt(t.getColumnIndex(CALORIES));
-                largest = t.getInt(t.getColumnIndex(CALORIES));
+                smallest = t.getInt(t.getColumnIndex(M1CALORIES));
+                largest = t.getInt(t.getColumnIndex(M1CALORIES));
 
 
                 while (!t.isAfterLast()) {
                     tally++;
-                    int cals = t.getInt(t.getColumnIndex(CALORIES));
+                    int cals = t.getInt(t.getColumnIndex(M1CALORIES));
                     total += cals;
                     if (cals < smallest) {
                         smallest = cals;
@@ -338,7 +333,7 @@ public class M1FavActivity extends Activity {
          */
 
         public long getItemId(int position){
-            c = db.rawQuery("select * from "+TABLE_NAME, null);
+            c = db1.rawQuery("select * from "+M1_TABLE_NAME, null);
             int count = c.getCount();
             if(count>0) {
                 c.moveToPosition(position);

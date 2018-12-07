@@ -39,6 +39,10 @@ import static ca.algonquinstudents.cst2335_group_project.M4OCDataBaseHelper.STOP
 import static ca.algonquinstudents.cst2335_group_project.M4OCDataBaseHelper.STOP_NAME;
 import static ca.algonquinstudents.cst2335_group_project.Member4MainActivity.db;
 
+/**
+ * this class defines behaviour for the fragment used to display details of a selected item of My List or search result list
+ */
+
 public class M4MessageFragment extends Fragment {
 
     private Activity parent = null;
@@ -76,6 +80,7 @@ public class M4MessageFragment extends Fragment {
 
         pBar = (ProgressBar) screen.findViewById(R.id.ProgressBarM4);
 
+        //initial add, remove and refresh button and set listener
         Button btnRemove = (Button) screen.findViewById(R.id.member4Btn1);
         Button btnAdd = (Button) screen.findViewById(R.id.member4Btn2);
         Button btnRefresh = (Button) screen.findViewById(R.id.member4Btn3);
@@ -85,6 +90,7 @@ public class M4MessageFragment extends Fragment {
 
         btnRefresh.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                //Query the bus stop details from OC website
                 new OCBusQuery("https://api.octranspo1.com/v1.2/GetNextTripsForStop?appID=223eb5c3&&apiKey=ab27db5b435b8c8819ffb8095328e775&stopNo=" + msgs[0] + "&routeNo=" + msgs[1]);
             }
         });
@@ -155,10 +161,12 @@ public class M4MessageFragment extends Fragment {
         }
     }
 
+    // delete the current item from My List
     public void deleteMessage(long id, String[] msg){
         db.delete(ML_TABLE_NAME, KEY_ID+"=?", new String[]{Long.toString(id)});
     }
 
+    // add the current item to My List
     public void addMessage(long id, String[] msg){
         ContentValues cVals = new ContentValues(  );
         cVals.put(KEY_ID, Long.toString(id));
@@ -168,6 +176,7 @@ public class M4MessageFragment extends Fragment {
         db.insert(ML_TABLE_NAME,"NullColumnName", cVals);
     }
 
+    // this class access the internet to query the database on OC website
     private class OCBusQuery extends AsyncTask<String, Integer, String[]> {
         public OCBusQuery(String url) {
             publishProgress(0);
@@ -262,6 +271,7 @@ public class M4MessageFragment extends Fragment {
             Log.i("Progress:", args[0].toString());
         }
 
+        //deal with the realtime information got from OC database on the website
         @Override
         protected void onPostExecute(String[] s) {
             super.onPostExecute(s);
@@ -306,8 +316,8 @@ public class M4MessageFragment extends Fragment {
 
 
 /********************************************************************************************************/
-/*                                                                                                      */
-/*                      Using lists in Android wth ListView - Tutorial                                  */
+/*        Following code (Expandable List View) modified from                                           */
+/*                      Using lists in Android with ListView - Tutorial                                 */
 /*                Lars Vogel, (c) 2010, 2016 vogella GmbH Version 6.2, 09.11.2016                       */
 /*                 http://www.vogella.com/tutorials/AndroidListView/article.html                        */
 /*                                                                                                      */

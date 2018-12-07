@@ -22,8 +22,8 @@ import static java.lang.Integer.parseInt;
 public class M2Help extends Activity {
 
     /**
-     * @param dbHelper - An object of the database helper class
-     * @param db - An object of the SQLite database class
+     * @param dbHelper2 - An object of the database helper class
+     * @param db2 - An object of the SQLite database class
      * @param movieArray - stores the runtime of every saved movie to be accessed for calculations
      * @param yearArray - stores the year of every saved movie to be accessed for calculations
      * @param count - Increases each time the cursor iterates to give the total number of saved movies
@@ -37,8 +37,8 @@ public class M2Help extends Activity {
      * @param average - stores a reference the average TextView
      * @param averageYear - stores a reference the average year TextView
      */
-    public static M2DatabaseHelper dbHelper;
-    public static SQLiteDatabase db;
+    public static M2DatabaseHelper dbHelper2;
+    public static SQLiteDatabase db2;
     public static ArrayList<Integer> movieArray;
     public static ArrayList<Integer> yearArray;
     int count;
@@ -73,15 +73,15 @@ public class M2Help extends Activity {
 
         movieArray = new ArrayList<>();
         yearArray = new ArrayList<>();
-        dbHelper = new M2DatabaseHelper(this);
-        db = dbHelper.getReadableDatabase();
+        dbHelper2 = new M2DatabaseHelper(this);
+        db2 = dbHelper2.getReadableDatabase();
         count = 0;
         year = 0;
         small = 0;
         large = 0;
         avg = 0;
 
-        Cursor c = db.rawQuery("select * from Movies", null);
+        Cursor c = db2.rawQuery("select * from Movies", null);
         c.moveToFirst();
         while (!c.isAfterLast()) {
             movieArray.add(Integer.parseInt((c.getString(c.getColumnIndex(M2DatabaseHelper.Key_runtime))).replaceAll("[^0-9]", "")));

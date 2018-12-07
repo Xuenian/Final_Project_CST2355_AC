@@ -14,4 +14,13 @@
         app:titleTextAppearance="@style/TextAppearance.AppCompat"
         app:titleTextColor="@android:color/holo_blue_dark" />
 
+    <TextView
+        android:id="@+id/textComingSoonM3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="TextView"
+        android:textAlignment="center" />
+
 </RelativeLayout>

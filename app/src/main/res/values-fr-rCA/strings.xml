@@ -1,13 +1,14 @@
 <resources>
     <string name="app_name">CST2355 Projet de Groupe</string>
     <string name="project_title">CST2355 Projet de Groupe\nCentre d\'Information</string>
-    <string name="version_info">Version: Novembre, 2018</string>
+    <string name="version_info">Version: décembre, 2018</string>
     <string name="course_message">Algonquin College - Programmeur\nCST2355-020-022-2018Fall\nProfessor: Eric Torunski, Mohammad Kadhum</string>
     <string name="group_message">===== Groupe 008 - Membres: =====</string>
     <string name="member1_name">Claire Hendrickson-Jones</string>
     <string name="member2_name">Galen Reid</string>
     <string name="member3_name">Vithura Sribalachandran</string>
     <string name="member4_name">XueNian Jiang</string>
+    <string name="buttonhome_name">Centre d\'Information</string>
     <string name="button1_name">Nutrition Alimentaire BD</string>
     <string name="button2_name">Synopsis: OMDb </string>
     <string name="button3_name">Radio-Canada Nouvelles</string>
@@ -86,7 +87,7 @@
     <string name="m4_db_search_result_no_match">Aucun resultat trouver!</string>
     <string name="m4_internet_error">Aucun connection internet.\nVeuillez verifier votre connexion internet.</string>
     <string name="m4_help_title">Circuit de Bus OC Aide</string>
-    <string name="m4_help_message">Appuyer sur le bouton pour selectioner la methode de recherche.\nAppuyer \'Chercher par\' bouton pour commencer.\nChoisisez un des resultats ou \'Ma Liste\' examiner les details du bus.\nVous pouvez enregistrez vos resultats a \'Ma Liste\' ou retirer votre resultat de \'Ma Liste\'.</string>
+    <string name="m4_help_message">App de Circuit de Bus OC par XueNian Jiang\nVersion 1.0\n\nAppuyer sur le bouton pour selectioner la methode de recherche.\nAppuyer \'Chercher par\' bouton pour commencer.\nChoisisez un des resultats ou \'Ma Liste\' examiner les details du bus.\nVous pouvez enregistrez vos resultats a \'Ma Liste\' ou retirer votre resultat de \'Ma Liste\'.</string>
     <string name="m4_searchbtn">Chercher par</string>
     <string name="m4_dialog_title">Veuillez Confirmer</string>
     <string name="m4_remove_button">Retirer de ma Liste</string>

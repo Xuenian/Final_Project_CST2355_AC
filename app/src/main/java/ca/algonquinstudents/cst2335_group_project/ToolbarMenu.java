@@ -6,6 +6,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.MenuItem;
 
+/**
+ * @author Xue Nian Jiang
+ *
+ * Toolbar Menu class to handle the toolbar issue for the whole project
+ */
+
 public class ToolbarMenu {
     private Context context;
     private String helpTitle, aboutTitle;
@@ -15,22 +21,27 @@ public class ToolbarMenu {
         this.context = context;
     }
 
+    // set help title for each activity
     public void setHelpTitle(String title){
         helpTitle = title;
     }
 
+    // set help message for each activity
     public void setHelpMessage(String message){
         helpMessage = message;
     }
 
+    // set about title for each activity
     public void setAboutTitle(String title){
         aboutTitle = title;
     }
 
+    // set about message for each activity
     public void setAboutMessage(String message){
         aboutMessage = message;
     }
 
+    // handle selected toolbar menu item
     public Intent onToolbarItemSelected(MenuItem item) {
         Intent intent = null;
         switch (item.getItemId()) {
@@ -60,6 +71,7 @@ public class ToolbarMenu {
         return intent;
     }
 
+    // show help or about dialog
     public void showMessageDialog(String title, String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle(title);
@@ -75,10 +87,10 @@ public class ToolbarMenu {
         String msg = context.getString(R.string.version_info) + "\n";
         msg += "\n" + context.getString(R.string.course_message) + "\n";
         msg += "\n" + context.getString(R.string.group_message);
-        msg += "\n" + context.getString (R.string.member1_name);
-        msg += "\n" + context.getString(R.string.member2_name);
-        msg += "\n" + context. getString(R.string.member3_name);
-        msg += "\n" + context.getString(R.string.member4_name);
+        msg += "\n" + context.getString(R.string.button1_name)+" - "+context.getString (R.string.member1_name);
+        msg += "\n" + context.getString(R.string.button2_name)+" - "+context.getString(R.string.member2_name);
+        msg += "\n" + context.getString(R.string.button3_name)+" - "+context. getString(R.string.member3_name);
+        msg += "\n" + context.getString(R.string.button4_name)+" - "+context.getString(R.string.member4_name);
         return msg;
     }
 }

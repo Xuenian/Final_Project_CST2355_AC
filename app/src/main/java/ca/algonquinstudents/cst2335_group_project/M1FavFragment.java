@@ -2,11 +2,7 @@ package ca.algonquinstudents.cst2335_group_project;
 
 
 import android.app.Activity;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,7 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.content.Intent;
-import org.w3c.dom.Text;
 
 /**
  * this class defines behaviour for the fragment used to display a Favourite
@@ -69,10 +64,6 @@ public class M1FavFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //dbHelper=new M1DatabaseHelper(this);
-        //db = dbHelper.getWritableDatabase();
-
-        //idNum=findViewById(R.id.messageHere);
 
         Bundle bundle = this.getArguments();
         if (bundle != null) {

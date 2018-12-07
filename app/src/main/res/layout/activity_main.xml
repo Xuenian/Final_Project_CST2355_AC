@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_row="0"
         android:layout_columnSpan="2"
+        android:layout_column="0"
         android:paddingTop="5dp"
         android:text="@string/project_title"
         android:textAlignment="center"
@@ -76,7 +77,9 @@
         android:id="@+id/msg_course"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_row="3"
         android:layout_columnSpan="2"
+        android:layout_column="0"
         android:padding="3dp"
         android:text="@string/course_message"
         android:textAlignment="center"/>
@@ -85,7 +88,9 @@
         android:id="@+id/msg_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_row="4"
         android:layout_columnSpan="2"
+        android:layout_column="0"
         android:text="@string/group_message"
         android:textAlignment="center"/>
 
@@ -93,7 +98,9 @@
         android:id="@+id/msg_member1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_row="5"
         android:layout_columnSpan="2"
+        android:layout_column="0"
         android:text="@string/member1_name"
         android:textAlignment="center"/>
 
@@ -101,7 +108,9 @@
         android:id="@+id/msg_member2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_row="6"
         android:layout_columnSpan="2"
+        android:layout_column="0"
         android:text="@string/member2_name"
         android:textAlignment="center"/>
 
@@ -109,7 +118,9 @@
         android:id="@+id/msg_member3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_row="7"
         android:layout_columnSpan="2"
+        android:layout_column="0"
         android:text="@string/member3_name"
         android:textAlignment="center"/>
 
@@ -117,7 +128,10 @@
         android:id="@+id/msg_member4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_row="8"
         android:layout_columnSpan="2"
+        android:layout_column="0"
+        android:layout_marginBottom="5dp"
         android:text="@string/member4_name"
         android:textAlignment="center" />
 

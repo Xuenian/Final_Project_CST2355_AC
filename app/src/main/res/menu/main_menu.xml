@@ -6,7 +6,7 @@
         android:orderInCategory="50"
         android:icon="@drawable/home48"
         app:showAsAction="always"
-        android:title="@string/button1_name" >
+        android:title="@string/buttonhome_name" >
     </item>
     <item
         android:id="@+id/food_item_m1"

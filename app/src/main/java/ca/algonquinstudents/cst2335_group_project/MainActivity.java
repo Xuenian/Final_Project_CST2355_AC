@@ -6,6 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+/**
+ * @author Xue Nian Jiang
+ * Main graphic menu for the whole porject
+ */
+
 public class MainActivity extends Activity {
 
     @Override
